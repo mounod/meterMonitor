@@ -1,0 +1,33 @@
+{
+  "base_url": "https://your-electricity-site.example.com",
+  "timeout_seconds": 15,
+  "db_path": "meter.db",
+  "log_path": "meter_monitor.log",
+  "report_dir": "reports",
+  "interval_hours": 2,
+  "charge_price_per_kwh": 0.55,
+  "run_window": { "start_hour": 7, "end_hour": 23 },
+  "notify": {
+    "window": { "start_hour": 8, "end_hour": 22 },
+    "digest_enabled": true,
+    "digest_interval_days": 2,
+    "digest_push_hour": 20,
+    "threshold_alert_enabled": true,
+    "fail_alert_after": 2,
+    "stale_hours": 48
+  },
+  "reports": [
+    { "name": "周报", "period_days": 7, "enabled": true },
+    { "name": "月报", "period_days": 30, "enabled": true }
+  ],
+  "groups": [
+    {
+      "name": "示例分组",
+      "webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_ME",
+      "targets": [
+        { "name": "示例房间照明", "lh": "示例楼号", "fj": "示例房间照明", "threshold_kwh": 10.0 },
+        { "name": "示例房间空调", "lh": "示例楼号", "fj": "示例房间空调", "threshold_kwh": 10.0 }
+      ]
+    }
+  ]
+}
